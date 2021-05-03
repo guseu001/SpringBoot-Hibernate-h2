@@ -1,0 +1,46 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name = "Kunde" table = "Kunde">
+
+        <meta attribute = "class-description">
+            This class contains the Kunde detail.
+        </meta>
+
+        <id name = "id" type = "int" column = "id">
+            <generator class="native"/>
+        </id>
+
+        <property name = "nachname" column = "first_name" type = "string"/>
+        <property name = "Vorname" column = "last_name" type = "string"/>
+        <property name = "email" column = "email" type = "string"/>
+        <property name = "anrede" column = "anrede" type = "string"/>
+        <property name = "geburtstag" column = "geburtstag" type = "short"/>
+        <property name = "geburtsmonat" column = "geburtsmonat" type = "short"/>
+        <property name = "geburtsdatum" column = "geburtsdatum" type = "short"/>
+        <property name = "telefonnummer" column = "telefonnummer" type = "int"/>
+
+    </class>
+
+    <class name = "Adresse" table = "Adresse">
+
+        <meta attribute = "class-description">
+            This class contains the Adresse of Kunde detail.
+        </meta>
+
+        <id name = "id" type = "int" column = "id">
+            <generator class="native"/>
+        </id>
+
+        <property name = "Strassenname" column = "strassenname" type = "string"/>
+        <property name = "hausnummer" column = "hausnummer" type = "short"/>
+        <property name = "plz" column = "plz" type = "int"/>
+        <property name = "stadt" column = "Stadt" type = "String"/>
+
+    </class>
+
+
+</hibernate-mapping>
