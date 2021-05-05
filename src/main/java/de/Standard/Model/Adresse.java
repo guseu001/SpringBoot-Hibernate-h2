@@ -8,13 +8,12 @@ package de.Standard.Model;
 import javax.persistence.*;
 
 @Entity
-@Table
 public class Adresse
 {
 	@Id
 	@Column
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	protected int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	protected int adress_id;
 	@Column
 	protected String strassenname;
 	@Column
@@ -63,4 +62,7 @@ public class Adresse
 		this.stadt = stadt;
 	}
 
+	public int getAdress_id() {
+		return adress_id;
+	}
 }

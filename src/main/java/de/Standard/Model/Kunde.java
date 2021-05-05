@@ -4,17 +4,19 @@ import javax.persistence.*;
 
 @Entity
 @Table
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Kunde extends Person
 {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
-	private int id;
+	private int kunde_id;
 	@Column
 	private final String kundenNr;
 	@Column
 	private String anrede;
+	@Column
+	private double kontostand;
 
 	public static int zahlkunde = 80070010;
 	
@@ -53,8 +55,16 @@ public class Kunde extends Person
 		this.anrede = anrede;
 	}
 
-	public int getID() {
-		return id;
+	public int getKunde_id() {
+		return kunde_id;
+	}
+
+	public double getKontostand() {
+		return kontostand;
+	}
+
+	public void setKontostand(double kontostand) {
+		this.kontostand = kontostand;
 	}
 
 }

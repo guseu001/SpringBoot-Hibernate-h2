@@ -2,6 +2,7 @@ package de.Standard.Repository;
 
 import de.Standard.Model.Adresse;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
-public interface AdresseRepository extends JpaRepository<Adresse, Integer> {
+public interface AdresseRepository extends CrudRepository<Adresse, Integer> {
 }

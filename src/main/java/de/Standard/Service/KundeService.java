@@ -6,6 +6,7 @@ import de.Standard.Repository.AdresseRepository;
 import de.Standard.Repository.KundeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,12 +20,12 @@ public class KundeService
     public void saveKunde(Kunde kunde){
         kundeRepository.save(kunde);
     }
-
+    /*
     public void updatekunde(int id, Kunde kunde){
         kundeRepository.findById(id);
         kundeRepository.save(kunde);
     }
-
+    */
     public void delete(int id){
         kundeRepository.deleteById(id);
     }

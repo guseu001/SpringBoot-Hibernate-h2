@@ -5,22 +5,19 @@ import de.Standard.Service.KundeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 public class KundeController
 {
     @Autowired
     KundeService kundenservice;
 
-
     @GetMapping("/kunde")
-    private List<Kunde> getAllKunde(){
-        return kundenservice.getAllKunde();
+    private @ResponseBody Iterable<Kunde> getAllKunde(){
+        return  kundenservice.getAllKunde();
     }
 
     @GetMapping("/kunde/{id}")
-    private Kunde getKunde(@PathVariable("id") int id){
+    private @ResponseBody Kunde getKunde(@PathVariable("id") int id){
         return kundenservice.getKunde(id);
     }
 

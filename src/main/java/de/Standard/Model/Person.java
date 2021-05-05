@@ -16,8 +16,6 @@ public abstract class Person
 	protected String emailAdresse;
 	@Column
 	protected int telefonnummer ;
-	@Column
-	protected double kontostand;
 
 	public Person(String nachname, String vorname, short geburtstag, short geburtsmonat, short geburtsdatum,
 				  String emailAdresse, int telefonnummer) {
@@ -79,11 +77,5 @@ public abstract class Person
 		this.telefonnummer = telefonnummer;
 	}
 
-	public double getKontostand() {
-		return kontostand;
-	}
 
-	public void setKontostand(double kontostand) {
-		this.kontostand = kontostand;
-	}
 }

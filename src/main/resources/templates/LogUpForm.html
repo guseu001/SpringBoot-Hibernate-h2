@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Registrierung</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+    <form action="/save" method="post" th:object="${kunde}">
+        <p>Anrede  <input type="text" name="anrede"/></p>
+        <p>Nachname <input type="text" name="nachname"/> </p>
+        <p>Vorname <input type="text" name="vorname"/></p>
+        <p>geburtstag <input type="number" name="geburtstag"/></p>
+        <p>geburtsmonat <input type="number" name="geburtsmonat"/></p>
+        <p>geburtdatum <input type="number" name="geburtsdatum"/></p>
+        <p>EmailAdresse <input type="text" name="emailAdresse"/></p>
+        <p>telefonnummer <input type="number" name="telefonnummer"/></p>
+
+        <p><input type="submit" value="senden"></p>
+        <p><input type="reset" value="zurücksetzen"></p>
+
+    </form>
+</body>
+</html>
+
