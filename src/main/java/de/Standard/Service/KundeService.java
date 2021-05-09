@@ -2,8 +2,10 @@ package de.Standard.Service;
 
 import de.Standard.Model.Adresse;
 import de.Standard.Model.Kunde;
+import de.Standard.Model.Login;
 import de.Standard.Repository.AdresseRepository;
 import de.Standard.Repository.KundeRepository;
+import de.Standard.Repository.LogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,8 +19,20 @@ public class KundeService
     @Autowired
     KundeRepository kundeRepository;
 
+    @Autowired
+    LogRepository logRepository;
+
+    @Autowired
+    AdresseRepository adresseRepository;
+
     public void saveKunde(Kunde kunde){
+
         kundeRepository.save(kunde);
+
+        // Login Data
+        Login log = new Login(kunde.getEmailAdresse(), kunde.getPasswort());
+        logRepository.save(log);
+
     }
     /*
     public void updatekunde(int id, Kunde kunde){

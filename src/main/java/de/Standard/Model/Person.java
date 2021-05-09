@@ -3,7 +3,6 @@ package de.Standard.Model;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
-@MappedSuperclass
 public abstract class Person
 {
 	@Column

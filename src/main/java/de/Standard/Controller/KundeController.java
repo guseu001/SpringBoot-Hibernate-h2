@@ -1,7 +1,10 @@
 package de.Standard.Controller;
 
+import de.Standard.Model.Adresse;
 import de.Standard.Model.Kunde;
+import de.Standard.Service.AdresseService;
 import de.Standard.Service.KundeService;
+import de.Standard.Service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,6 +13,8 @@ public class KundeController
 {
     @Autowired
     KundeService kundenservice;
+    @Autowired
+    AdresseService adresseService;
 
     @GetMapping("/kunde")
     private @ResponseBody Iterable<Kunde> getAllKunde(){
@@ -27,8 +32,10 @@ public class KundeController
     }
 
     @PostMapping("/kunde")
-    private void saveKunde(@RequestBody Kunde kunde)
+    private void saveKunde(@RequestBody Kunde kunde, Adresse adress)
     {
         kundenservice.saveKunde(kunde);
+        adresseService.saveAdresse(adress);
+
     }
 }

@@ -5,20 +5,68 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
-    <form action="/save" method="post" th:object="${kunde}">
-        <p>Anrede  <input type="text" name="anrede"/></p>
-        <p>Nachname <input type="text" name="nachname"/> </p>
-        <p>Vorname <input type="text" name="vorname"/></p>
-        <p>geburtstag <input type="number" name="geburtstag"/></p>
-        <p>geburtsmonat <input type="number" name="geburtsmonat"/></p>
-        <p>geburtdatum <input type="number" name="geburtsdatum"/></p>
-        <p>EmailAdresse <input type="text" name="emailAdresse"/></p>
-        <p>telefonnummer <input type="number" name="telefonnummer"/></p>
+    <main class="login">
+        <form action="/save" method="POST">
+            <fieldset>
+                <legend>Persönlichen Information</legend>
 
-        <p><input type="submit" value="senden"></p>
-        <p><input type="reset" value="zurücksetzen"></p>
+                <label for="nachname">Nachname: </label>
+                <input type="text" name="nachname" id="nachname" size="40" placeholder="Nachname eingeben"> <br>
 
-    </form>
+                <label for="Vorname">Vorname: </label>
+                <input type="text" name="vorname" id="vorname" size="40" placeholder="Vorname eingeben"> <br>
+
+                <label for="geburtstag">Geburtstag</label>
+                <input type="number" name="geburtstag" id="geburtstag">
+
+                <label for="geburtsmonat">GeburtsMonat</label>
+                <input type="number" name="geburtsmonat" id="geburtsmonat">
+
+                <label for="geburtsdatum">Geburtsdatum</label>
+                <input type="number" name="geburtsdatum" id="geburtsdatum"> <br>
+
+                <label for="telefonNr">Mobile Nr</label>
+                <input placeholder="1575512" type="text" name="telefonnummer" id="telefonNr"> <br>
+
+                <label for="strasse">Straße: </label>
+                <input placeholder="Munsterstrasse" type="text" name="strasse" id="strasse">
+
+                <label for="hausNr">HausNr: </label>
+                <input placeholder="123" type="number" name="hausnummer" id="hausNr"> <br>
+
+                <label for="plz">PLZ: </label>
+                <input type="number" name="plz" id="plz" size="10" placeholder="48151">
+
+                <label for="city">Stadt: </label>
+                <input type="text" name="stadt" id="city" placeholder="Musterstadt"> <br>
+
+                <label for="land">Land: </label>
+                <input type="text" id="land" name="land" placeholder="Musterstadt"> <br>
+            </fieldset>
+
+            <fieldset>
+                <legend>Kontakt Information</legend>
+                <label for="email"> Email-Adresse: </label>
+                <input type="email" name="emailAdresse" id="email" placeholder="mustermann@web.de" size="50"/> <br>
+
+                <label for="emailconfirm"> Email-Adresse bestätigen: </label>
+                <input type="email" name="email" id="emailconfirm" placeholder="mustermann@web.de wiederholen" size="50"/> <br>
+
+                <label for="passwort"> Passwort: </label>
+                <input type="password" name="passwort" id="passwort" placeholder="passwort" size="50"/> <br>
+
+                <label for="passwortconfirm"> Passwort wiederholen: </label>
+                <input type="password" name="passwortconfirm" id="passwortconfirm" placeholder="passwort wiederholen" size="50"/> <br>
+
+            </fieldset>
+
+
+            <input type="submit" value="Registrieren">
+            <input type="reset" value="Abbrechen">
+
+        </form>
+
+    </main>
 </body>
 </html>
 

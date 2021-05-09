@@ -1,6 +1,8 @@
 package de.Standard.Controller;
 
+import de.Standard.Model.Adresse;
 import de.Standard.Model.Kunde;
+import de.Standard.Service.AdresseService;
 import de.Standard.Service.KundeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,8 @@ public class WebController
 {
     @Autowired
     KundeService kundeService;
+    @Autowired
+    AdresseService adresseService;
 
     @RequestMapping("/log")
     public String index(){
@@ -21,11 +25,13 @@ public class WebController
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public ModelAndView save(@ModelAttribute Kunde kunde){
+    public ModelAndView save(@ModelAttribute Kunde kunde, Adresse adress){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("Antwort");
         modelAndView.addObject("kunde", kunde);
+        modelAndView.addObject("adress" , adress);
         kundeService.saveKunde(kunde);
+        adresseService.saveAdresse(adress);
 
         return modelAndView;
     }

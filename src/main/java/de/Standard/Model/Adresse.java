@@ -13,15 +13,17 @@ public class Adresse
 	@Id
 	@Column
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	protected int adress_id;
+	private int adress_id;
 	@Column
-	protected String strassenname;
+	private String strassenname;
 	@Column
-	protected short hausnummer;
+	private short hausnummer;
 	@Column
-	protected int plz;
+	private int plz;
 	@Column
-	protected String stadt;
+	private String stadt;
+	@Column
+	private String land;
 	
 	public Adresse(String strassenname, short hausnummer, int plz, String stadt) {
 		this.strassenname = strassenname;
@@ -64,5 +66,13 @@ public class Adresse
 
 	public int getAdress_id() {
 		return adress_id;
+	}
+
+	public String getLand() {
+		return land;
+	}
+
+	public void setLand(String land) {
+		this.land = land;
 	}
 }

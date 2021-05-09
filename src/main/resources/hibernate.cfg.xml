@@ -18,9 +18,9 @@
         <property name = "Vorname" column = "last_name" type = "string"/>
         <property name = "email" column = "email" type = "string"/>
         <property name = "anrede" column = "anrede" type = "string"/>
-        <property name = "geburtstag" column = "geburtstag" type = "short"/>
-        <property name = "geburtsmonat" column = "geburtsmonat" type = "short"/>
-        <property name = "geburtsdatum" column = "geburtsdatum" type = "short"/>
+        <property name = "geburtstag" column = "geburtstag" type = "int"/>
+        <property name = "geburtsmonat" column = "geburtsmonat" type = "int"/>
+        <property name = "geburtsdatum" column = "geburtsdatum" type = "int"/>
         <property name = "telefonnummer" column = "telefonnummer" type = "int"/>
 
     </class>
@@ -39,8 +39,23 @@
         <property name = "hausnummer" column = "hausnummer" type = "short"/>
         <property name = "plz" column = "plz" type = "int"/>
         <property name = "stadt" column = "Stadt" type = "String"/>
+        <property name = "land" column = "Land" type = "String"/>
 
     </class>
 
+    <class name = "Login" table = "Login">
+
+        <meta attribute = "class-description">
+            This class contains the Adresse of Kunde detail.
+        </meta>
+
+        <id name = "id" type = "int" column = "id">
+            <generator class="native"/>
+        </id>
+
+        <property name = "EmailAdresse" column = "EmailAdresse" type = "string"/>
+        <property name = "Passwort" column = "Passwort" type = "String"/>
+
+    </class>
 
 </hibernate-mapping>
