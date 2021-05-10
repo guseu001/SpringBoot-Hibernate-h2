@@ -18,8 +18,8 @@ public class AdressController
         return adresseService.getAllAdresse();
     }
 
-    @GetMapping("/adress/{id}")
-    private Adresse getAdress(@PathVariable("id") int id){
+    @GetMapping("/adress/{adress_id}")
+    private Adresse getAdress(@PathVariable("adress_id") int id){
         return adresseService.getAdress(id);
     }
 

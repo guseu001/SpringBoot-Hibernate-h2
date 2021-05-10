@@ -8,16 +8,17 @@ package de.Standard.Model;
 import javax.persistence.*;
 
 @Entity
+@Table
 public class Adresse
 {
 	@Id
 	@Column
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int adress_id;
 	@Column
 	private String strassenname;
 	@Column
-	private short hausnummer;
+	private int hausnummer;
 	@Column
 	private int plz;
 	@Column
@@ -25,11 +26,12 @@ public class Adresse
 	@Column
 	private String land;
 	
-	public Adresse(String strassenname, short hausnummer, int plz, String stadt) {
+	public Adresse(String strassenname, int hausnummer, int plz, String stadt, String land) {
 		this.strassenname = strassenname;
 		this.hausnummer = hausnummer;
 		this.plz = plz;
 		this.stadt = stadt;
+		this.land = land;
 	}
 	
 	public String getStrassenname() {
@@ -40,11 +42,11 @@ public class Adresse
 		this.strassenname = strassenname;
 	}
 
-	public short getHausnummer() {
+	public int getHausnummer() {
 		return hausnummer;
 	}
 
-	public void setHausnummer(short hausnummer) {
+	public void setHausnummer(int hausnummer) {
 		this.hausnummer = hausnummer;
 	}
 
@@ -52,7 +54,7 @@ public class Adresse
 		return plz;
 	}
 
-	public void setPlz(short plz) {
+	public void setPlz(int plz) {
 		this.plz = plz;
 	}
 
