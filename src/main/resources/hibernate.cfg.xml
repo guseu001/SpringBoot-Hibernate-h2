@@ -21,7 +21,7 @@
         <property name = "geburtstag" column = "geburtstag" type = "int"/>
         <property name = "geburtsmonat" column = "geburtsmonat" type = "int"/>
         <property name = "geburtsdatum" column = "geburtsdatum" type = "int"/>
-        <property name = "telefonnummer" column = "telefonnummer" type = "int"/>
+        <property name = "telefonnummer" column = "telefonnummer" type = "String"/>
 
     </class>
 

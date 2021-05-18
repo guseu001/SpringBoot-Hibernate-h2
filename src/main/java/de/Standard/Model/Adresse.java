@@ -13,7 +13,7 @@ public class Adresse
 {
 	@Id
 	@Column
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int adress_id;
 	@Column
 	private String strassenname;

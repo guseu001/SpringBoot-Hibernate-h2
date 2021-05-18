@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+           body{
+                font-size: 11pt;
+                margin:0 35% 0 35%
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <title>Login</title>
+        <nav>Nav Bereich</nav>
+    </header>
+
+    <main class="container-sm pt-3 mt-5 border">
+        <form action="/userprofil" method="GET">
+            <fieldset>
+                <legend>LOGIN</legend>
+                <div class="form-group">
+                    <div>
+                        <label for="email"> Email-Adresse: </label>
+                        <input type="email" name="emailAdress" id="email" placeholder="mustermann@web.de" class="form-control mb-3"/>
+                    </div>
+
+                    <div>
+                        <label for="passwort"> Passwort: </label>
+                        <input type="password" name="passwort" id="passwort" placeholder="passwort" class="form-control mb-4"/>
+                    </div>
+                </div>
+
+                <div>
+                    <input type="submit" class="btn btn-success" value="Anmelden">
+                </div>
+            </fieldset>
+
+            <a href="#"> passwort vergessen ?</a> <br>
+            <a href="registrieren.html"> Neuer Kunde ?</a>
+        </form>
+
+    </main>
+</body>
+</html>

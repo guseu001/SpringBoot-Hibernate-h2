@@ -22,7 +22,6 @@ public class KundeService
     public void saveKunde(Kunde kunde){
 
         kundeRepository.save(kunde);
-
         // Login Data
         Login log = new Login(kunde.getEmailAdresse(), kunde.getPasswort());
         logRepository.save(log);

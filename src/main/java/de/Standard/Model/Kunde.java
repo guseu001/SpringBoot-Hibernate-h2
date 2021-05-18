@@ -21,7 +21,7 @@ public class Kunde
 	@Column
 	private String passwort;
 	@Column
-	private int telefonnummer ;
+	private String telefonnummer ;
 	@Column
 	private final String kundenNr;
 	@Column
@@ -33,7 +33,7 @@ public class Kunde
 	
 	public Kunde(String anrede, String nachname, String vorname,
 					int geburtstag, int geburtsmonat, int geburtsdatum,
-					String emailAdresse, int telefonnummer)
+					String emailAdresse, String telefonnummer)
 	{
 		this.anrede = anrede;
 		this.nachname = nachname;
@@ -104,11 +104,11 @@ public class Kunde
 		this.geburtsdatum = geburtsdatum;
 	}
 
-	public int getTelefonnummer() {
+	public String getTelefonnummer() {
 		return telefonnummer;
 	}
 
-	public void setTelefonnummer(int telefonnummer) {
+	public void setTelefonnummer(String telefonnummer) {
 		this.telefonnummer = telefonnummer;
 	}
 
