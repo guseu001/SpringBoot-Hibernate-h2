@@ -13,15 +13,18 @@ import java.util.List;
 @Service
 public class KundeService
 {
-    @Autowired
-    KundeRepository kundeRepository;
+    private KundeRepository kundeRepository;
+    private LogRepository logRepository;
 
     @Autowired
-    LogRepository logRepository;
+    public KundeService(KundeRepository kundeRepository, LogRepository logRepository){
+        this.kundeRepository = kundeRepository;
+        this.logRepository = logRepository;
+    }
 
     public void saveKunde(Kunde kunde){
-
         kundeRepository.save(kunde);
+
         // Login Data
         Login log = new Login(kunde.getEmailAdresse(), kunde.getPasswort());
         logRepository.save(log);

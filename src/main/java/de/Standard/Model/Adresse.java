@@ -6,10 +6,11 @@
 package de.Standard.Model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table
-public class Adresse
+public class Adresse implements Serializable
 {
 	@Id
 	@Column
@@ -25,7 +26,9 @@ public class Adresse
 	private String stadt;
 	@Column
 	private String land;
-	
+
+	public Adresse(){}
+
 	public Adresse(String strassenname, int hausnummer, int plz, String stadt, String land) {
 		this.strassenname = strassenname;
 		this.hausnummer = hausnummer;
@@ -70,6 +73,9 @@ public class Adresse
 		return adress_id;
 	}
 
+	public void setAdress_id(int adress_id) {
+		this.adress_id = adress_id;
+	}
 	public String getLand() {
 		return land;
 	}

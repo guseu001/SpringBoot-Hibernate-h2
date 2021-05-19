@@ -1,10 +1,11 @@
 package de.Standard.Model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table
-public class Kunde
+public class Kunde implements Serializable
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,10 +31,12 @@ public class Kunde
 	private double kontostand;
 
 	public static int zahlkunde = 80070010;
-	
+
+
+
 	public Kunde(String anrede, String nachname, String vorname,
 					int geburtstag, int geburtsmonat, int geburtsdatum,
-					String emailAdresse, String telefonnummer)
+					String emailAdresse, String telefonnummer, String passwort)
 	{
 		this.anrede = anrede;
 		this.nachname = nachname;
@@ -44,12 +47,16 @@ public class Kunde
 		this.telefonnummer = telefonnummer;
 
 		this.emailAdresse = emailAdresse;
+		this.passwort = passwort;
 
 		this.kontostand = 0.00;
-		
+
+		this.kundenNr = "C-" + zahlkunde;
+
+	}
+	public Kunde(){
 		this.kundenNr = "C-" + zahlkunde;
 		zahlkunde++;
-		
 	}
 
 	public String getKundenNr() {
@@ -115,6 +122,14 @@ public class Kunde
 	public int getKunde_id() {
 		return kunde_id;
 	}
+
+	public void setKunde_id(int kunde_id) {
+		this.kunde_id = kunde_id;
+	}
+
+//	public void setKundenNr(String kundenNr) {
+//		this.kundenNr = kundenNr;
+//	}
 
 	public double getKontostand() {
 		return kontostand;

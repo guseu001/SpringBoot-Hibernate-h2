@@ -11,9 +11,13 @@ import java.util.List;
 @Service
 public class AdresseService
 {
-    @Autowired
-    AdresseRepository adresseRepository;
 
+    private AdresseRepository adresseRepository;
+
+    @Autowired
+    public AdresseService(AdresseRepository adresseRepository){
+        this.adresseRepository = adresseRepository;
+    }
     public void saveAdresse(Adresse adress){
         adresseRepository.save(adress);
     }

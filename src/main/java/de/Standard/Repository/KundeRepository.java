@@ -1,9 +1,9 @@
 package de.Standard.Repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import de.Standard.Model.Kunde;
+import org.springframework.data.repository.CrudRepository;
 
-public interface KundeRepository extends JpaRepository<Kunde, Integer>
+public interface KundeRepository extends CrudRepository<Kunde, Integer>
 {
 
 }

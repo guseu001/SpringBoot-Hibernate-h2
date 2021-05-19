@@ -8,6 +8,8 @@ import de.Standard.Service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class KundeController
 {
@@ -17,12 +19,12 @@ public class KundeController
     AdresseService adresseService;
 
     @GetMapping("/kunde")
-    private @ResponseBody Iterable<Kunde> getAllKunde(){
+    private List<Kunde> getAllKunde(){
         return  kundenservice.getAllKunde();
     }
 
     @GetMapping("/kunde/{id}")
-    private @ResponseBody Kunde getKunde(@PathVariable("id") int id){
+    private Kunde getKunde(@PathVariable("id") int id){
         return kundenservice.getKunde(id);
     }
 
