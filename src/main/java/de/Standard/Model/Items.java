@@ -1,6 +1,8 @@
 package de.Standard.Model;
 
-public abstract class Item 
+import java.util.List;
+
+public abstract class Item
 {
 	
 	private final int itemNr;
@@ -8,10 +10,8 @@ public abstract class Item
 	protected String bezeichnung;
 	protected String farbe;
 	protected String beschreibung;
-	protected Object[] photos = new Object[10];
+	protected List<Object> photos;
 	protected double preis;
-
-
 
 	public Item(String type, String bezeichnung, String farbe, String beschreibung , double preis) {
 		this.itemNr = iniItemNr();

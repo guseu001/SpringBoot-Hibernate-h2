@@ -23,7 +23,7 @@
     </header>
     <hr>
     <main class="container-sm pt-2 mt-5 border" >
-        <form action="/save" method="POST" class="was-validated" name="logUpform">
+        <form action="/save" method="POST" class="need-validated" name="logUpform">
             <fieldset class="form-group">
                 <legend>Persönlichen Information</legend>
                 <div class="form-group">
@@ -155,7 +155,7 @@
                 var passwort = document.forms["logUpform"]["passwort"].value;
                 var passwortconfirm = document.forms["logUpform"][passwortconfirm].value;
 
-                if(passwort !=passwortconfirm){
+                if(passwort != passwortconfirm){
                     alert("Bitte prüfen Sie ihre eingegebene Passwort erneunt");
                 }
             }
@@ -163,4 +163,3 @@
     </footer>
 </body>
 </html>
-

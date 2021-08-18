@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <title>Item Erfassung</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <style>
+            body{
+                font-size: 10pt
+            }
+            main{
+                margin: 0 25% 0 25%
+            }
+        </style>
+    </head>
+
+    <body>
+        <header class="mb-4">
+            <h1>Firmenname</h1>
+        </header>
+
+        <main class="container-sm border mb-4">
+            <form method="post" action="/Itemsave">
+                <div class="form-group">
+                    <label for="kategorie">Kategorie: </label>
+                    <select id="kategorie" class="form-control form-control-sm">
+                        <option>Klamotten</option>
+                        <option>Schuhe</option>
+                        <option>Accessoire</option>
+                    </select>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="bezeichnung">Bezeichnung: </label>
+                        <input type="text" placeholder="Name der Item"
+                               name="bezeichnung" id="bezeichnung" class="form-control form-control-sm">
+                    </div>
+                    <div class="col">
+                        <label for="farbe">Farbe: </label>
+                        <input type="text" placeholder="Item farbe eingeben"
+                               name="farbe" id="farbe" class="form-control form-control-sm">
+                    </div>
+                    <div class="col">
+                        <label for="stoff">Stoff: </label>
+                        <input type="text" placeholder="Stoff der Item"
+                               name="stoff" id="stoff" class="form-control form-control-sm">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="preis">Preis: </label>
+                        <input type="number" placeholder="preis der Item"
+                               name="preis" id="preis" class="form-control form-control-sm">
+                    </div>
+                    <div class="col">
+                        <label for="menge">Menge: </label>
+                        <input type="number" placeholder="menge der Item"
+                               name="menge" id="menge" class="form-control form-control-sm" >
+                    </div>
+                    <div class="col">
+                        <label for="marke">Marke: </label>
+                        <input type="text" placeholder="Marke der Item"
+                               name="marke" id="marke" class="form-control form-control-sm">
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="beschreibung">Beschreibung:</label><br>
+                     <textarea name="beschreibung" id="beschreibung"
+                               cols="50" rows="10" class="form-control form-control-sm">
+                     </textarea>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="bilder">Bilder Auswählen:</label>
+                    <input type="file" name="bilder" id="bilder">
+                </div>
+                <div class="form-group mb-3">
+                    <input type="button" value="Save Item" class="btn btn-primary">
+                </div>
+            </form>
+        </main>
+
+        <footer class="container">
+            <div>&copy; 2021 </div>
+        </footer>
+    </body>
+</html>
