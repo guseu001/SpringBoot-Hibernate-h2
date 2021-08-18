@@ -10,8 +10,10 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
         <style>
-            body{
-                font-size: 10pt
+             body{
+                font-size: 10pt;
+                margin:0 25% 0 25%
+            }
             }
             main{
                 margin: 0 25% 0 25%
@@ -25,10 +27,10 @@
         </header>
 
         <main class="container-sm border mb-4">
-            <form method="post" action="/Itemsave">
+            <form method="post" action="/Itemsave" name="ItemErfassungsView" enctype="multipart/form-data"->
                 <div class="form-group">
                     <label for="kategorie">Kategorie: </label>
-                    <select id="kategorie" class="form-control form-control-sm">
+                    <select id="kategorie" name="kategorie" class="form-control form-control-sm">
                         <option>Klamotten</option>
                         <option>Schuhe</option>
                         <option>Accessoire</option>
@@ -55,7 +57,7 @@
                 <div class="row mb-3">
                     <div class="col">
                         <label for="preis">Preis: </label>
-                        <input type="number" placeholder="preis der Item"
+                        <input type="number" step="any" placeholder="preis der Item"
                                name="preis" id="preis" class="form-control form-control-sm">
                     </div>
                     <div class="col">
@@ -76,12 +78,12 @@
                                cols="50" rows="10" class="form-control form-control-sm">
                      </textarea>
                 </div>
+<!--                <div class="form-group mb-3">-->
+<!--                    <label for="bilder">Bilder Auswählen:</label>-->
+<!--                    <input type="file" name="bilder" id="bilder" multiple>-->
+<!--                </div>-->
                 <div class="form-group mb-3">
-                    <label for="bilder">Bilder Auswählen:</label>
-                    <input type="file" name="bilder" id="bilder">
-                </div>
-                <div class="form-group mb-3">
-                    <input type="button" value="Save Item" class="btn btn-primary">
+                    <input type="submit" value="Save Item" class="btn btn-primary">
                 </div>
             </form>
         </main>

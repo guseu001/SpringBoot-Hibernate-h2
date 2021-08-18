@@ -1,13 +1,61 @@
 <!DOCTYPE html>
-<html xmlns:th="https://thymeleaf.org">
+<html lang="de" xmlns:th="https://thymeleaf.org">
     <head>
         <meta charset="UTF-8">
         <title>Log in</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="import" href="HTML/ItemView.html">
+        <style>
+            body{
+                font-size: 10pt;
+                margin: 0 20% 0 20%
+            }
+            li{
+                margin-bottom : 5px;
+            }
+            li a {
+                margin-top: 20px
+            }
+
+        </style>
     </head>
     <body>
-            <h1>Super  <h4 th:text="${kunde.anrede}"></h4>
-                <h4 th:text="${kunde.nachname}"></h4>
 
-            </h1>
+        <header>
+<!--            <iframe src="header.html" style="border: none"></iframe>-->
+        </header>
+
+        <main class="container-sm pt-2 mt-5 border">
+            <div class="row">
+                <aside class="col-sm-4">
+                    <label>Meine Daten </label>
+                    <li ><a th:href="@{/HTML/log}" class="mt-3">Mein Kontostand</a></li>
+<!--                    <li><a th:href="#" class="mt-3">Meine Bestellungen</a></li>-->
+<!--                    <li><a th:href="#" class="mt-3">Meine Stonierungen</a></li>-->
+                    <li><a th:href="@{/UpdateKundenDaten}" class="mt-3">Meine persönlichen Daten</a></li>
+<!--                    <li><a th:href="#" class="mt-3">Meine Anschriften</a></li>-->
+<!--                    <li><a th:href="#" class="mt-3">abmelden</a></li>-->
+                </aside>
+                <hr>
+                <article class="col-sm-8 form-control" >
+                    <h1>Hallo
+                        <h6 th:text="${users.kunde_id}"></h6>
+                        <h6 th:text="${users.email}"></h6>
+                        <h6 th:text="${users.nachname}"></h6>
+
+                    </h1>
+                </article>
+            </div>
+
+        </main>
+
+        <footer class="container">
+<!--            <iframe src="footer.html" height="300px" width="800px" style="border:none" ></iframe>-->
+        </footer>
     </body>
 </html>

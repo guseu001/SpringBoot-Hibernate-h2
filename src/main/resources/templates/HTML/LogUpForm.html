@@ -1,165 +1,167 @@
 <!DOCTYPE html>
 <html lang="de" xmlns:th="https://www.thymeleaf.org">
-<head>
-    <title>Registrierung</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <head>
+        <title>Registrierung</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <style>
-        body{
-            font-size: 10pt;
-            margin:0 25% 0 25%
-        }
-    </style>
-</head>
-<body>
-    <header class="container-lg">
-        <h1>Header Teil </h1>
-        <nav>Nav Teil</nav>
-    </header>
-    <hr>
-    <main class="container-sm pt-2 mt-5 border" >
-        <form action="/save" method="POST" class="need-validated" name="logUpform">
-            <fieldset class="form-group">
-                <legend>Persönlichen Information</legend>
-                <div class="form-group">
-                    <label for="anrede">Anrede: </label>
-                    <select id="anrede" class="form-control form-control-sm">
-                        <option name="frau" selected>Frau</option>
-                        <option name="mann">Mann</option>
-                    </select>
-                </div>
-                <div class="row mb-2">
-                    <div class="col">
-                        <label for="nachname" >Nachname: </label>
-                        <input type="text" name="nachname" id="nachname" pattern="[a-zA-Z]*" class="form-control form-control-sm" placeholder="Nachname eingeben" required>
-                    </div>
-
-                    <div class="col">
-                        <label for="vorname" >Vorname: </label>
-                        <input type="text" name="vorname" id="vorname" pattern="[a-zA-Z]*" class="form-control form-control-sm" placeholder="Vorname eingeben" required>
-                    </div>
-
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col">
-                        <label for="geburtstag">Geburtstag:</label>
-                        <input type="number" name="geburtstag" id="geburtstag" pattern="[1-31]{1,2}" class="form-control form-control-sm" required>
-                    </div>
-                    <div class="col">
-                        <label for="geburtsmonat">Geburtsmonat:</label>
-                        <input type="number" name="geburtsmonat" id="geburtsmonat" pattern="[1-9]{1,2}" class="form-control form-control-sm" required>
-                    </div>
-                    <div class="col">
-                        <label for="geburtsdatum">Geburtsdatum: </label>
-                        <input type="number" name="geburtsdatum" id="geburtsdatum" pattern="[1-9]{4}" class="form-control form-control-sm" required>
-                    </div>
-
-                </div>
-            </fieldset>
-
-            <hr>
-
-            <fieldset>
-                <legend>Kontakt Informationen</legend>
-
-                <div class="form-group">
-                    <label for="telefonNr">Mobile Nr:</label>
-                    <input placeholder="1575512" type="text" name="telefonnummer" id="telefonNr" pattern="[0-9]{11,}" class="form-control form-control-sm" required>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <label for="strasse">Straße: </label>
-                        <input placeholder="Munsterstrasse" type="text" name="strassenname" id="strasse" class="form-control form-control-sm" required>
-                    </div>
-                    <div class="col">
-                        <label for="hausNr">HausNr: </label>
-                        <input placeholder="123" type="number" name="hausnummer" id="hausNr" pattern="[0-9]*" class="form-control form-control-sm" required>
-                    </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col">
-                        <label for="plz">PLZ: </label>
-                        <input type="number" name="plz" id="plz" size="10" placeholder="48151" pattern="[0-9]{5}" class="form-control form-control-sm" required>
-                    </div>
-                    <div class="col">
-                        <label for="city">Stadt: </label>
-                        <input type="text" name="stadt" id="city" placeholder="Musterstadt" class="form-control form-control-sm" required>
-                    </div>
-                </div>
-
-                <div class="form-group mt-3">
-                    <label for="land">Land: </label>
-                    <input type="text" id="land" name="land" placeholder="Musterland" class="form-control form-control-sm">
-                </div>
-
-            </fieldset>
-            <hr>
-            <fieldset class="form-group mb-5">
-                <legend>Login Information</legend>
-
-                <div class="row">
-                    <div class="col">
-                        <label for="email"> Email-Adresse: </label>
-                        <input type="email" name="emailAdresse" id="email" placeholder="mustermann@web.de" size="50" class="form-control form-control-sm" required/>
-                    </div>
-                    <div class="col">
-                        <label for="emailconfirm"> Email-Adresse bestätigen: </label>
-                        <input type="email" name="emailconfirm" id="emailconfirm" placeholder="mustermann@web.de wiederholen" oninput="validEmail()" class="form-control form-control-sm" required/>
-                    </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col">
-                        <label for="passwort"> Passwort: </label>
-                        <input type="password" name="passwort" id="passwort" placeholder="passwort" size="50" class="form-control form-control-sm" required/>
-                    </div>
-                    <div class="col">
-                        <label for="passwortconfirm"> Passwort wiederholen: </label>
-                        <input type="password" name="passwortconfirm" id="passwortconfirm" placeholder="passwort wiederholen" oninput="validPasswort()"  class="form-control form-control-sm" required/>
-                    </div>
-                </div>
-            </fieldset>
-
-            <div class="form-group mt-6">
-                <input type="submit" class="btn btn-primary" value="Registrieren">
-            </div>
-
-
-        </form>
-
-    </main>
-    <footer class="container mt-5">
-        <div> &copy; 2021</div>
-
-        <script type="text/javascript">
-            function validEmail(){
-
-                var email = document.forms["logUpform"]["emailAdresse"].value;
-                var emailconfirm = document.forms["logUpform"]["emailconfirm"].value;
-
-                if(email != emailconfirm){
-                    alert("Bitte prüfen Sie ihre Email Adresse erneunt!");
-
-                }
+        <style>
+            body{
+                font-size: 10pt;
+                margin:0 25% 0 25%
             }
-        </script>
-        <script type="text/javascript">
-            function validPasswort(){
-                var passwort = document.forms["logUpform"]["passwort"].value;
-                var passwortconfirm = document.forms["logUpform"][passwortconfirm].value;
+        </style>
+    </head>
+    <body>
+        <div class="container-lg">
+            <header >
+                <h1>Unternehmen Name </h1>
+                <nav>Nav Teil</nav>
+            </header>
+        </div>
 
-                if(passwort != passwortconfirm){
-                    alert("Bitte prüfen Sie ihre eingegebene Passwort erneunt");
+        <hr>
+        <main class="container-sm pt-2 mt-5 border" >
+            <form action="/save" method="POST" class="need-validated" name="logUpform">
+                <fieldset class="form-group">
+                    <legend>Persönlichen Information</legend>
+                    <div class="form-group">
+                        <label for="anrede">Anrede: </label>
+                        <select id="anrede" name="anrede" class="form-control form-control-sm">
+                            <option name="frau" selected>Frau</option>
+                            <option name="mann">Mann</option>
+                        </select>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col">
+                            <label for="nachname" >Nachname: </label>
+                            <input type="text" name="nachname" id="nachname" pattern="[a-zA-Z]*" class="form-control form-control-sm" placeholder="Nachname eingeben" required>
+                        </div>
+
+                        <div class="col">
+                            <label for="vorname" >Vorname: </label>
+                            <input type="text" name="vorname" id="vorname" pattern="[a-zA-Z]*" class="form-control form-control-sm" placeholder="Vorname eingeben" required>
+                        </div>
+
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <label for="geburtstag">Geburtstag:</label>
+                            <input type="number" name="geburtstag" id="geburtstag" pattern="[1-31]{1,2}" class="form-control form-control-sm" required>
+                        </div>
+                        <div class="col">
+                            <label for="geburtsmonat">Geburtsmonat:</label>
+                            <input type="number" name="geburtsmonat" id="geburtsmonat" pattern="[1-9]{1,2}" class="form-control form-control-sm" required>
+                        </div>
+                        <div class="col">
+                            <label for="geburtsdatum">Geburtsdatum: </label>
+                            <input type="number  " name="geburtsdatum" id="geburtsdatum" pattern="[1-9]{4}" class="form-control form-control-sm" required>
+                        </div>
+
+                    </div>
+                </fieldset>
+
+                <hr>
+
+                <fieldset>
+                    <legend>Kontakt Informationen</legend>
+
+                    <div class="form-group">
+                        <label for="telefonNr">Mobile Nr:</label>
+                        <input placeholder="1575512" type="text" name="telefonnummer" id="telefonNr" pattern="[0-9]{11,}" class="form-control form-control-sm" required>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="strasse">Straße: </label>
+                            <input placeholder="Munsterstrasse" type="text" name="strassenname" id="strasse" class="form-control form-control-sm" required>
+                        </div>
+                        <div class="col">
+                            <label for="hausNr">HausNr: </label>
+                            <input placeholder="123" type="number" name="hausnummer" id="hausNr" pattern="[0-9]*" class="form-control form-control-sm" required>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <label for="plz">PLZ: </label>
+                            <input type="number" name="plz" id="plz" size="10" placeholder="48151" pattern="[0-9]{5}" class="form-control form-control-sm" required>
+                        </div>
+                        <div class="col">
+                            <label for="city">Stadt: </label>
+                            <input type="text" name="stadt" id="city" placeholder="Musterstadt" class="form-control form-control-sm" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <label for="land">Land: </label>
+                        <input type="text" id="land" name="land" placeholder="Musterland" class="form-control form-control-sm">
+                    </div>
+
+                </fieldset>
+                <hr>
+                <fieldset class="form-group mb-5">
+                    <legend>Login Information</legend>
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="email"> Email-Adresse: </label>
+                            <input type="email" name="email" id="email" placeholder="mustermann@web.de" size="50" class="form-control form-control-sm" required/>
+                        </div>
+                        <div class="col">
+                            <label for="emailconfirm"> Email-Adresse bestätigen: </label>
+                            <input type="email" name="emailconfirm" id="emailconfirm" placeholder="mustermann@web.de wiederholen" oninput="validEmail()" class="form-control form-control-sm" required/>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <label for="passwort"> Passwort: </label>
+                            <input type="password" name="passwort" id="passwort" placeholder="passwort" size="50" class="form-control form-control-sm" required/>
+                        </div>
+                        <div class="col">
+                            <label for="passwortconfirm"> Passwort wiederholen: </label>
+                            <input type="password" name="passwortconfirm" id="passwortconfirm" placeholder="passwort wiederholen" onmouseout="validPasswort()"  class="form-control form-control-sm" required/>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-group mt-6">
+                    <input type="submit" class="btn btn-primary" value="Registrieren">
+                </div>
+
+
+            </form>
+
+        </main>
+        <footer class="container mt-5">
+            <div> &copy; 2021</div>
+
+            <script type="text/javascript">
+                function validEmail(){
+
+                    var email = document.forms["logUpform"]["email"].value;
+                    var emailconfirm = document.forms["logUpform"]["emailconfirm"].value;
+
+                    if(email != emailconfirm){
+                        alert("Bitte prüfen Sie ihre Email Adresse erneunt!");
+                    }
                 }
-            }
-        </script>
-    </footer>
-</body>
+            </script>
+            <script type="text/javascript">
+                function validPasswort(){
+                    var passwort = document.forms["logUpform"]["passwort"].value;
+                    var passwortconfirm = document.forms["logUpform"]["passwortconfirm"].value;
+
+                    if(passwort != passwortconfirm){
+                        alert("Bitte prüfen Sie ihre eingegebene Passwort erneunt");
+                    }
+                }
+            </script>
+        </footer>
+    </body>
 </html>

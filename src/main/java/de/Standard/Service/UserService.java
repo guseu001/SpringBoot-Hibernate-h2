@@ -1,10 +1,10 @@
 package de.Standard.Service;
 
 import de.Standard.Model.Adresse;
-import de.Standard.Model.Kunde;
+import de.Standard.Model.Users;
 import de.Standard.Model.Login;
 import de.Standard.Repository.AdresseRepository;
-import de.Standard.Repository.KundeRepository;
+import de.Standard.Repository.UserRepository;
 import de.Standard.Repository.LogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -16,10 +16,10 @@ import java.util.List;
 
 @Transactional
 @Service
-public class KundeService
+public class UserService
 {
     private AdresseRepository adresseRepository;
-    private KundeRepository kundeRepository;
+    private UserRepository userRepository;
     private LogRepository logRepository;
 
 //    @Autowired
@@ -30,43 +30,41 @@ public class KundeService
     //  kunde.setPasswort(passwortCodieren);
 
     @Autowired
-    public KundeService(KundeRepository kundeRepository,
-                        AdresseRepository adresseRepository,
-                        LogRepository logRepository)
+    public UserService(UserRepository userRepository,
+                       AdresseRepository adresseRepository,
+                       LogRepository logRepository)
     {
-        this.kundeRepository = kundeRepository;
+        this.userRepository = userRepository;
         this.adresseRepository = adresseRepository;
         this.logRepository = logRepository;
     }
 
-    public void saveKunde(Kunde kunde, Adresse adress){
+    public void saveUser(Users users, Adresse adress){
         /*  Adresse daten  */
         adresseRepository.save(adress);
 
          /* Logging Daten  */
-        Login log = new Login(kunde.getEmail(), kunde.getPassword());
+        Login log = new Login(users.getEmail(), users.getPassword());
         logRepository.save(log);
-        log.setKunde(kunde);
+        log.setKunde(users);
 
         /* Save Person in der Database */
-        kundeRepository.save(kunde);
-        kunde.setAdress(adress);
+        userRepository.save(users);
+        users.setAdress(adress);
     }
 
-    public void updateKunden(int id, Kunde altKunde, Kunde kunde) throws NullPointerException
+    public void updateUser(int id, Users altUsers, Users users) throws NullPointerException
     {
         try {
-            if (kunde != null)
+            if (users != null)
             {
-                altKunde.setNachname((kunde.getNachname().isEmpty() ? altKunde.getNachname() : kunde.getNachname()));
-                altKunde.setVorname(kunde.getVorname());
-                altKunde.setAnrede(kunde.getAnrede());
-                altKunde.setGeburtsdatum(kunde.getGeburtsdatum());
-                altKunde.setGeburtstag(kunde.getGeburtstag());
-                altKunde.setGeburtsmonat(kunde.getGeburtsmonat());
-                altKunde.setTelefonnummer(kunde.getTelefonnummer());
+                altUsers.setNachname(users.getNachname());
+                altUsers.setVorname(users.getVorname());
+                altUsers.setAnrede(users.getAnrede());
+                altUsers.setGeburtsdatum(users.getGeburtsdatum());
+                altUsers.setTelefonnummer(users.getTelefonnummer());
 
-                kundeRepository.save(altKunde);
+                userRepository.save(altUsers);
             }
         }
         catch (NullPointerException ex){
@@ -75,35 +73,20 @@ public class KundeService
 
     }
 
-    public void delete(int id){
-        kundeRepository.deleteById(id);
+    public void deleteUser(int id){
+        userRepository.deleteById(id);
     }
 
-    public Kunde getKunde(String email, String password) {
-    /*
-            Session session = sessionFactory.openSession();
-            Transaction transaction;
-            Kunde kunde;
-
-            try{
-                transaction = session.beginTransaction();
-    //            String SQLQuary = "Select * from kunde where kunde_id = " + id + ";";
-                kunde = kundeRepository.findById(id).get();
-                transaction.commit();
-            }
-
-            catch (HibernateException ex){
-                ex.printStackTrace();
-            }
-    */
-//        return kundeRepository.findById(id).get();
-        return kundeRepository.getKundenBeiEmailAndPasswort(email, password);
+    public Users getUser(String email, String password)
+    {
+        return userRepository.getUserBeiEmailAndPasswort(email, password);
     }
 
-    public List<Kunde> getAllKunde() {
-        List<Kunde> kundelist = new ArrayList<Kunde>();
-        kundeRepository.findAll().forEach(kunde -> kundelist.add(kunde));
+    public List<Users> getAllUser()
+    {
+        List<Users> userlist = new ArrayList<Users>();
+        userRepository.findAll().forEach(user -> userlist.add(user));
 
-        return kundelist;
+        return userlist;
     }
 }

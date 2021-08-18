@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table
+@Table(name = "Adresse")
 public class Adresse implements Serializable
 {
 	@Id
@@ -83,4 +83,14 @@ public class Adresse implements Serializable
 	public void setLand(String land) {
 		this.land = land;
 	}
+	/*
+	public Users getKunde() {
+		return kunde;
+	}
+
+	public void setKunde(Users kunde) {
+		this.kunde = kunde;
+	}
+
+	 */
 }

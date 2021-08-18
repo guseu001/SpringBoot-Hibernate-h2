@@ -1,10 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
+<html lang="de" xmlns:th="https://thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Change Daten</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <style>
+            body{
+                font-size: 11pt;
+                margin: 0 20% 0 20%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>Unternehmen Name</h1>
+        </header>
+
+        <main>
+            <form action="/update" method="post" class="container">
+                <div class="row mt-4">
+                    <div class="col-4">
+                        <label for="anrede">Anrede: </label>
+                    </div>
+                    <div class="col-4">
+                        <strong th:text="${users.anrede}"></strong>
+                    </div>
+                    <div class="col-4">
+                        <select id="anrede" name="anrede" class="form-control form-control-sm">
+                            <option name="frau" >Frau</option>
+                            <option name="mann">Mann</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="row mt-3">
+                    <div class="col-4">
+                        <p>Nachname: </p>
+                    </div>
+                    <div class="col-4">
+                        <strong th:text="${users.nachname}" ></strong>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" name="nachname" class="form-control form-control-sm">
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-4">
+                        <p>Vorname: </p>
+                    </div>
+                    <div class="col-4">
+                        <strong th:text="${users.vorname}" ></strong>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" name="vorname" class="form-control form-control-sm">
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-4">
+                        <p>telefonnummer: </p>
+                    </div>
+                    <div class="col-4">
+                        <strong th:text="${users.telefonnummer}" ></strong>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" name="telefonnummer" class="form-control form-control-sm">
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-4">
+                        <p>Geburtstag: </p>
+                    </div>
+                    <div class="col-4">
+                        <strong th:text="${users.geburtstag}" ></strong>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" name="geburtstag" class="form-control form-control-sm">
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-4">
+                        <p>Geburtsmonat: </p>
+                    </div>
+                    <div class="col-4">
+                        <strong th:text="${users.geburtsmonat}" ></strong>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" name="geburtsmonat" class="form-control form-control-sm">
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-4">
+                        <p>geburtsdatum: </p>
+                    </div>
+                    <div class="col-4">
+                        <strong th:text="${users.geburtsdatum}" ></strong>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" name="geburtsdatum" class="form-control form-control-sm">
+                    </div>
+                </div>
+
+                <div class="form-group mt-4">
+                    <input type="submit" class="btn btn-primary" value="Update" font-size="10pt">
+                </div>
+
+            </form>
+        </main>
+        <footer>
+            <div> &COPY; 2021 </div>
+        </footer>
+    </body>
 </html>

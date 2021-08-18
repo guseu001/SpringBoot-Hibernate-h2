@@ -1,10 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
+<html lang="de" xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Title</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+        <header class="container mb-5">
+            <h1>Firmenname</h1>
+            <a th:href="@{/HTML/log}"> Neuer Kunde ?</a>
+        </header>
+
+        <main class="container mb-5">
+            <div class="row">
+                <section class="col-sm-7">
+                    Bilder
+                </section>
+                <section class="col-sm-5 form-control">
+                    Item info
+                </section>
+            </div>
+
+        </main>
+
+        <footer class="container text-center " style="background-color:black; color:white">
+            <div>&copy; 2021</div>
+        </footer>
+    </body>
 </html>

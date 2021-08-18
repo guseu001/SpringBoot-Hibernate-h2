@@ -3,11 +3,10 @@ package de.Standard.Model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 @Entity
-@Table(name = "Kunde")
-public class Kunde implements Serializable
+@Table(name = "Users")
+public class Users implements Serializable
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -61,7 +60,7 @@ public class Kunde implements Serializable
 	@Column(length = 7)
 	private boolean aktiviert;
 
-	public Kunde(String anrede,
+	public Users(String anrede,
 				 String nachname,
 				 String vorname,
 				 int geburtstag,
@@ -93,8 +92,8 @@ public class Kunde implements Serializable
 		this.aktiviert = false;
 
 	}
-	public Kunde(){
-		this.registrierungstime = "" + LocalDate.now() + " " + LocalTime.now();
+	public Users(){
+		this.registrierungstime = "" + LocalDate.now();
 
 		this.kundenNr = "C-" + CountKunde.ANZAHLKUNDE;
 

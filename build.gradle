@@ -15,16 +15,31 @@ repositories {
 }
 
 dependencies {
+	/*	Starter dependency	*/
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+	/*	 Hibernate	*/
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	runtimeOnly 'com.h2database:h2'
-//	runtimeOnly 'mysql:mysql-connector-java'
 
+	/*	Connect to Database	*/
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+//	runtimeOnly 'com.h2database:h2'
+	runtimeOnly 'mysql:mysql-connector-java'
+
+	/*	html view injection	 */
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-devtools'
+
+	/*	JUnit dependency injection	 */
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+
+	/*	Spring Security Injection
+	implementation 'org.springframework.boot:spring-boot-starter-security'	*/
+
+	/*	Spring Mail dependency Injection */
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
 }
 
 test {

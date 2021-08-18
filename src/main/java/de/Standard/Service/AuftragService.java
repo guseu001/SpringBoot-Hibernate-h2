@@ -1,2 +1,6 @@
-package de.Standard.Service;public class Auftrag {
+package de.Standard.Service;
+
+public class AuftragService
+{
+
 }

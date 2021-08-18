@@ -1,2 +1,6 @@
-package de.Standard.Model;public class Bilder {
+package de.Standard.Model;
+
+public class Bilder
+{
+
 }

@@ -1,26 +1,32 @@
 package de.Standard.Model;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Login
+@Table
+public class Login implements Serializable
 {
-
     @Id
     @Column
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int log_id;
     @Column
-    private String emailAdresse;
+    private boolean isLogging = false;
     @Column
-    private String passwort;
+    private String email;
+    @Column
+    private String password;
+    @OneToOne
+    private Users users;
 
-    public Login(String emailAdresse, String passwort){
-        this.emailAdresse = emailAdresse;
-        this.passwort = passwort;
+    public Login(String emailAdresse,
+                 String password){
+        this.email = emailAdresse;
+        this.password = password;
     }
+
+    public Login(){}
 
     public int getLog_id() {
         return log_id;
@@ -30,19 +36,35 @@ public class Login
         this.log_id = log_id;
     }
 
-    public String getEmailAdresse() {
-        return emailAdresse;
+    public String getPassword() {
+        return password;
     }
 
-    public void setEmailAdresse(String emailAdresse) {
-        this.emailAdresse = emailAdresse;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getPasswort() {
-        return passwort;
+    public boolean getIsLogging() {
+        return isLogging;
     }
 
-    public void setPasswort(String passwort) {
-        this.passwort = passwort;
+    public void setIsLogging(boolean logger) {
+        this.isLogging = logger;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Users getKunde() {
+        return users;
+    }
+
+    public void setKunde(Users users) {
+        this.users = users;
     }
 }

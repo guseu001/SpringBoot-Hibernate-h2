@@ -1,52 +1,41 @@
-package de.Standard.Model;
+package de.Standard.Service;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import java.io.Serializable;
-import java.util.Date;
+import de.Standard.Model.Items;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 
-public class Warenkorb implements Serializable
+@Service
+public class Warenkorb
 {
-    @Id
-    @Column
-    @GeneratedValue
-    private long Id;
-    @Column
-    private List<Items> warenkorb;
-    @Column
-    private String bestellDatum;
+    /*
+        list of Item zur Bestellung
+     */
+    private List<Items> listofItems;
 
     public Warenkorb(){
-        this.bestellDatum = "" + new Date().toLocaleString();
+        this.listofItems = new ArrayList<Items>();
     }
 
-    public Warenkorb(List<Items> bestellung){
-        this.warenkorb = bestellung;
+    public List<Items> getlistOfItems() {
+        return listofItems;
     }
 
-    public long getId() {
-        return Id;
+    public void setListofItems(List<Items> warenkorb) {
+        this.listofItems = warenkorb;
     }
 
-    public void setId(long id) {
-        Id = id;
+    public void addItemIntoList(Items item){
+        listofItems.add(item);
     }
 
-    public List<Items> getBestellung() {
-        return warenkorb;
+    public void deleteItem(Items item){
+        listofItems.remove(item);
     }
 
-    public void setBestellung(List<Items> warenkorb) {
-        this.warenkorb = warenkorb;
+    public void listOfItemLeeren(){
+        listofItems.clear();
     }
 
-    public String getBestellDatum() {
-        return bestellDatum;
-    }
-
-    public void setBestellDatum(String bestellDatum) {
-        this.bestellDatum = bestellDatum;
-    }
 }

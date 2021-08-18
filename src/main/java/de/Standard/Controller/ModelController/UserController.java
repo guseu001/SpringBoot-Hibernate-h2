@@ -11,39 +11,38 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
-public class KundeController
+public class UserController
 {
 
     @Autowired
-    UserService kundenservice;
+    UserService userService;
     @Autowired
     AdresseService adresseService;
 
-    @GetMapping("/kunde")
-    private List<Users> getAllKunde(){
-        return  kundenservice.getAllKunde();
+    @GetMapping("/users")
+    private List<Users> getAllUser(){
+        return  userService.getAllUser();
     }
 
-    @GetMapping("/kunde/{email}/{password}")
-    private Users getKunde(@PathVariable("email") String email, @PathVariable String password)
+    @GetMapping("/user/{email}/{password}")
+    private Users getUser(@PathVariable("email") String email, @PathVariable String password)
     {
-        return kundenservice.getKunde(email, password);
+        return userService.getUser(email, password);
     }
 
-    @DeleteMapping("/kunde/{id}")
-    private void deleteKunde(@PathVariable("id") int id){
-        kundenservice.delete(id);
+    @DeleteMapping("/user/{id}")
+    private void deleteUser(@PathVariable("id") int id){
+        userService.deleteUser(id);
     }
 
-    @PostMapping("/users")
-    private String saveKunde(@RequestBody Users users, Adresse adress)
+    @PostMapping("/user")
+    private String saveUser(@RequestBody Users users, Adresse adress)
     {
-        kundenservice.saveKunde(users, adress);
+        userService.saveUser(users, adress);
         return "Data save!";
     }
 
-//    @PutMapping("/kunde/{id}")
+//    @PutMapping("/user/{id}")
 //    private String updateKunde(@PathVariable("id") int id,
 //                               @RequestBody Users kunde)
 //    {

@@ -1,4 +1,4 @@
-package de.Standard.Controller;
+package de.Standard.Controller.ModelController;
 
 import de.Standard.Model.Adresse;
 import de.Standard.Service.AdresseService;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/test")
+@RequestMapping("api")
 public class AdressController
 {
     @Autowired

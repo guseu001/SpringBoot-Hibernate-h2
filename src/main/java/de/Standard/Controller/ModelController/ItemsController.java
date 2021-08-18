@@ -1,4 +1,4 @@
-package de.Standard.Controller;
+package de.Standard.Controller.ModelController;
 
 import de.Standard.Model.Items;
 import de.Standard.Model.Rolle;
